@@ -1,12 +1,9 @@
 class Api::V1::TasksController < ApplicationController
   def index
-    render json: {
-      example_key: {
-        example_nested_key: "It worked!"
-      },
-      pet_cats: [
-        "Miso", "Celery"
-      ]
-    }
+    render json: Task.all
+  end
+  def show
+    
+    render json: Task.find(params[:id])
   end
 end
