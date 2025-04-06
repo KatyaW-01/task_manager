@@ -6,8 +6,11 @@ class Api::V1::TasksController < ApplicationController
     render json: Task.find(params[:id])
   end
   def create
-    binding.pry
+    # binding.pry
     render json: Task.create(task_params)
+  end
+  def update
+    render json: Task.update(params[:id],task_params)
   end
 
   private
@@ -15,4 +18,6 @@ class Api::V1::TasksController < ApplicationController
   def task_params
     params.require(:task).permit(:title,:description)
   end
+
+
 end
