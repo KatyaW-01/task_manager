@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   # root "posts#index"
   get "/api/v1/tasks", to: "api/v1/tasks#index"
   get "/api/v1/tasks/:id", to: "api/v1/tasks#show"
+  post "/api/v1/tasks", to: "api/v1/tasks#create"
 end
