@@ -2,7 +2,7 @@ class Api::V1::TasksController < ApplicationController
   def index
     render json: Task.all
   end
-  
+
   def show
     render json: Task.find(params[:id])
   end
@@ -18,6 +18,11 @@ class Api::V1::TasksController < ApplicationController
 
   def destroy
     render json: Task.delete(params[:id])
+  end
+
+  def index
+    tasks = Task.all
+    render json: TaskSerializer.format_tasks(tasks)
   end
 
   private
